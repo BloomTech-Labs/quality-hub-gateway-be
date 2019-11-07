@@ -17,7 +17,7 @@ const gateway = new ApolloGateway({
     },
   ]
 })
-
+ 
 (async () => {
   const { schema, executor } = await gateway.load();
 
