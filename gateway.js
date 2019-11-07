@@ -16,7 +16,9 @@ const gateway = new ApolloGateway({
       url: 'https://qh-resumeq-practice-01.herokuapp.com',
     },
   ],
-})(async () => {
+});
+
+(async () => {
   const { schema, executor } = await gateway.load();
 
   const server = new ApolloServer({
@@ -25,7 +27,9 @@ const gateway = new ApolloGateway({
     introspection: true,
     playground: true,
   });
+
   const PORT = process.env.PORT || 4000;
+
   server.listen(PORT, () => {
     console.log(`server is listening on ${PORT}`);
   });
