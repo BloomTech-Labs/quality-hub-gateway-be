@@ -5,7 +5,7 @@ const gateway = new ApolloGateway({
   serviceList: [
     {
       name: 'core',
-      url: 'https://qh-core-practice-01.herokuapp.com',
+      url: 'https://quality-hub-core-staging.herokuapp.com',
     },
     {
       name: 'interviewQ',
