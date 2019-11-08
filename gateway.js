@@ -1,5 +1,11 @@
 const { ApolloServer } = require('apollo-server');
-const { ApolloGateway } = require('@apollo/gateway');
+const { ApolloGateway, RemoteGraphQLDataSource } = require('@apollo/gateway');
+
+class AuthenticatedDataSource extends RemoteGraphQLDataSource {
+  willSendRequest({ request, context}) {
+    request.http.headers.set('Authorization', context.auth);
+  }
+}
 
 const gateway = new ApolloGateway({
   serviceList: [
@@ -16,6 +22,9 @@ const gateway = new ApolloGateway({
       url: 'https://qh-resumeq-practice-01.herokuapp.com',
     },
   ],
+  buildService({name, url}) {
+    return new AuthenticatedDataSource({url})
+  }
 });
 
 (async () => {
@@ -26,6 +35,9 @@ const gateway = new ApolloGateway({
     executor,
     introspection: true,
     playground: true,
+    context: ({req}) => {
+      return {auth: req.headers.authorization}
+    }
   });
 
   const PORT = process.env.PORT || 4000;
