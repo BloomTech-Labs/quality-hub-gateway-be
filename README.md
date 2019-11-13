@@ -2,7 +2,7 @@
 
 # API Documentation
 
-#### 1️⃣ Backend deployed at [Heroku](https://quality-hub-gateway.herokuapp.com/) <br>
+#### 1️⃣ Backend staged at [Heroku](https://quality-hub-gateway-staging.herokuapp.com/) <br>
 
 ## 1️⃣ Getting started
 
