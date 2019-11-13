@@ -1,10 +1,8 @@
-🚫 The numbers 1️⃣ through 3️⃣ next to each item represent the week that part of the docs needs to be comepleted by. Make sure to delete the numbers by the end of Labs.
-
 # API Documentation
 
-#### 1️⃣ Backend deployed at [Heroku](https://quality-hub-gateway.herokuapp.com/) <br>
+#### Backend staged at [Heroku](https://quality-hub-gateway-staging.herokuapp.com/) <br>
 
-## 1️⃣ Getting started
+## Getting started
 
 To get the server running locally:
 
@@ -17,18 +15,24 @@ To get the server running locally:
 
 We chose this framework for:
 
-- scalability
-- Point Two
-- Point Three
-- Point Four
+- Scalability: since the QualityHub project currently includes Core and InterviewQ (but will include future modules, like ResumeQ, etc.), we wanted to set up a gateway that would connect the different back-ends
+- Simplicity: we wanted to set up a gateway so that the various front-end apps associated with the QualityHub project would only need to hit one endpoint
+- Flexibility: we chose to implement GraphQL to make it easier for future front-end developers to access the backend schema
 
-## 2️⃣ Endpoints
-
-🚫This is a placeholder, replace the endpoints, access control, and description to match your project
+## Endpoints
 
 #### Organization Routes
 
-| Method | Endpoint                | Access Control | Description                                  |
+The Gateway current connects the following GraphQL back-end APIs:
+
+QualityHub Core: https://quality-hub-core-staging.herokuapp.com  
+InterviewQ: https://qh-interviewq-practice-01.herokuapp.com
+
+The overall schema for the project can be accessed at the GraphQL playground here: https://quality-hub-gateway-staging.herokuapp.com
+
+Specific schemas can be accessed at the playgrounds linked to above.
+
+<!-- | Method | Endpoint                | Access Control | Description                                  |
 | ------ | ----------------------- | -------------- | -------------------------------------------- |
 | GET    | `/organizations/:orgId` | all users      | Returns the information for an organization. |
 | PUT    | `/organizatoins/:orgId` | owners         | Modify an existing organization.             |
@@ -43,80 +47,17 @@ We chose this framework for:
 | GET    | `/users/:userId`        | owners, supervisors | Returns info for a single user.                    |
 | POST   | `/users/register/owner` | none                | Creates a new user as owner of a new organization. |
 | PUT    | `/users/:userId`        | owners, supervisors |                                                    |
-| DELETE | `/users/:userId`        | owners, supervisors |                                                    |
+| DELETE | `/users/:userId`        | owners, supervisors |                                                    | -->
 
-# Data Model
+## Data Model
 
-🚫This is just an example. Replace this with your data model
+Specific schemas (data models, queries, mutations) for each of the connected GraphQL back-end APIs can be accessed at the links above.
 
-#### 2️⃣ ORGANIZATIONS
-
----
-
-```
-{
-  id: UUID
-  name: STRING
-  industry: STRING
-  paid: BOOLEAN
-  customer_id: STRING
-  subscription_id: STRING
-}
-```
-
-#### USERS
-
----
-
-```
-{
-  id: UUID
-  organization_id: UUID foreign key in ORGANIZATIONS table
-  first_name: STRING
-  last_name: STRING
-  role: STRING [ 'owner', 'supervisor', 'employee' ]
-  email: STRING
-  phone: STRING
-  cal_visit: BOOLEAN
-  emp_visit: BOOLEAN
-  emailpref: BOOLEAN
-  phonepref: BOOLEAN
-}
-```
-
-## 2️⃣ Actions
-
-🚫 This is an example, replace this with the actions that pertain to your backend
-
-`getOrgs()` -> Returns all organizations
-
-`getOrg(orgId)` -> Returns a single organization by ID
-
-`addOrg(org)` -> Returns the created org
-
-`updateOrg(orgId)` -> Update an organization by ID
-
-`deleteOrg(orgId)` -> Delete an organization by ID
-<br>
-<br>
-<br>
-`getUsers(orgId)` -> if no param all users
-
-`getUser(userId)` -> Returns a single user by user ID
-
-`addUser(user object)` --> Creates a new user and returns that user. Also creates 7 availabilities defaulted to hours of operation for their organization.
-
-`updateUser(userId, changes object)` -> Updates a single user by ID.
-
-`deleteUser(userId)` -> deletes everything dependent on the user
-
-## 3️⃣ Environment Variables
+## Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables.
 
 create a .env file that includes the following:
-
-🚫 These are just examples, replace them with the specifics for your app
 
 _ STAGING_DB - optional development db for using functionality not available in SQLite
 _ NODE\*ENV - set to "development" until ready for "production"
