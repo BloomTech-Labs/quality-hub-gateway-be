@@ -7,9 +7,9 @@
 To get the server running locally:
 
 - Clone this repo
-- **npm install** to install all required dependencies
-- **npm run server** to start the local server
-- **npm test** to start server using testing environment
+- **yarn install** to install all required dependencies
+- **yarn server** to start the local server
+- **yarn test** to start server using testing environment
 
 ### Node.js + graphql-yoga + Prisma
 

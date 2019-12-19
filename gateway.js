@@ -21,7 +21,7 @@ const gateway = new ApolloGateway({
 		},
 		{
 			name: 'resumeQ',
-			url: 'https://resume-q-be-staging.herokuapp.com/',
+			url: 'https://qh-resumeq-practice-01.herokuapp.com',
 		},
 	],
 	buildService({ name, url }) {
