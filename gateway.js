@@ -13,15 +13,19 @@ const gateway = new ApolloGateway({
 	serviceList: [
 		{
 			name: 'core',
-			url: 'https://quality-hub-core-staging.herokuapp.com',
+			url: 'https://quality-hub-core.herokuapp.com/',
 		},
 		{
 			name: 'interviewQ',
-			url: 'https://interview-q-staging.herokuapp.com',
+			url: 'https://interview-q.herokuapp.com/',
 		},
 		{
 			name: 'resumeQ',
 			url: 'https://resume-q-be-staging.herokuapp.com/',
+    },
+    {
+			name: 'chat',
+			url: 'http://localhost:4000',
 		},
 	],
 	buildService({ name, url }) {
@@ -43,7 +47,7 @@ const gateway = new ApolloGateway({
 		},
 	});
 
-	const PORT = process.env.PORT || 4000;
+	const PORT = process.env.PORT || 4001;
 
 	server.listen(PORT, () => {
 		console.log(`server is listening on ${PORT}`);
