@@ -25,7 +25,7 @@ const gateway = new ApolloGateway({
 		},
 		{
 			name: 'chat',
-			url: 'http://localhost:4000',
+			url: 'https://quality-hub-chat.herokuapp.com',
 		},
 	],
 	buildService({ name, url }) {
