@@ -22,11 +22,11 @@ const gateway = new ApolloGateway({
 		{
 			name: 'resumeQ',
 			url: 'https://resume-q-be-staging.herokuapp.com/',
-    },
-    {
-			name: 'chat',
-			url: 'http://localhost:4000',
 		},
+		// {
+		// 	name: 'chat',
+		// 	url: 'http://localhost:4000',
+		// },
 	],
 	buildService({ name, url }) {
 		return new AuthenticatedDataSource({ url });
