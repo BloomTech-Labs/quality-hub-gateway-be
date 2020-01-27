@@ -8,7 +8,6 @@ class AuthenticatedDataSource extends RemoteGraphQLDataSource {
 	}
 }
 
-console.log(`endpoints`, process.env.CORE_ENDPOINT, process.env.INTERVIEWQ_ENDPOINT, process.env.RESUMEQ_ENDPOINT)
 
 // This sets up Apollo Gateway to provide a single GraphQL endpoint for the listed GraphQL endpoints
 const gateway = new ApolloGateway({
