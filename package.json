@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon gateway.js",
     "start": "node gateway.js",
-    "development": "env-cmd -f /config/development.env nodemon src/index.js"
+    "development": "env-cmd -f ./config/development.env nodemon src/index.js"
   },
   "repository": {
     "type": "git",
