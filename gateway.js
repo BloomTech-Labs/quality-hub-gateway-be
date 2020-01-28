@@ -18,11 +18,22 @@ const gateway = new ApolloGateway({
 		},
 		{
 			name: 'interviewQ',
-			url: process.env.INTERVIEWQ_ENDPOINT,
 		},
 		{
 			name: 'resumeQ',
 			url: process.env.RESUMEQ_ENDPOINT,
+		},
+		{
+			name: 'interviewQ',
+			url: process.env.INTERVIEWQ_ENDPOINT,
+		},
+		{
+			name: 'resumeQ',
+			url: 'https://resume-q-be-staging.herokuapp.com/',
+		},
+		{
+			name: 'chat',
+			url: 'https://quality-hub-chat.herokuapp.com',
 		},
 	],
 	buildService({ name, url }) {
