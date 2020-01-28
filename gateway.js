@@ -14,6 +14,7 @@ const gateway = new ApolloGateway({
 	serviceList: [
 		{
 			name: 'core',
+
 			url: process.env.CORE_ENDPOINT,
 		},
 		{
@@ -56,6 +57,7 @@ const gateway = new ApolloGateway({
 	});
 
 	const PORT = process.env.GATEWAY_PORT || 4000;
+
 
 	server.listen(PORT, () => {
 		console.log(`server is listening on ${PORT}`);
