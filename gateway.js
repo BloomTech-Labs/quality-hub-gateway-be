@@ -14,11 +14,7 @@ const gateway = new ApolloGateway({
 	serviceList: [
 		{
 			name: 'core',
-
 			url: process.env.CORE_ENDPOINT,
-		},
-		{
-			name: 'interviewQ',
 		},
 		{
 			name: 'resumeQ',
@@ -27,10 +23,6 @@ const gateway = new ApolloGateway({
 		{
 			name: 'interviewQ',
 			url: process.env.INTERVIEWQ_ENDPOINT,
-		},
-		{
-			name: 'resumeQ',
-			url: 'https://resume-q-be-staging.herokuapp.com/',
 		},
 		{
 			name: 'chat',
