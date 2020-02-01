@@ -52,6 +52,6 @@ const gateway = new ApolloGateway({
 
 
 	server.listen(PORT, () => {
-		console.log(`server is listening on ${PORT}`);
+		console.log(`QualityHub Federated Gateway is listening on ${PORT}`);
 	});
 })();
