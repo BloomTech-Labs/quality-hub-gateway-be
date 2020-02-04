@@ -48,7 +48,7 @@ const gateway = new ApolloGateway({
 		},
 	});
 
-	const PORT = process.env.GATEWAY_PORT || 4000;
+	const PORT = (process.env.GATEWAY_PORT || process.env.PORT) || 4000;
 
 
 	server.listen(PORT, () => {
