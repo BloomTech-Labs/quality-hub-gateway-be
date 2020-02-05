@@ -8,20 +8,25 @@ class AuthenticatedDataSource extends RemoteGraphQLDataSource {
 	}
 }
 
+
 // This sets up Apollo Gateway to provide a single GraphQL endpoint for the listed GraphQL endpoints
 const gateway = new ApolloGateway({
 	serviceList: [
 		{
 			name: 'core',
-			url: 'https://quality-hub-core-staging.herokuapp.com',
-		},
-		{
-			name: 'interviewQ',
-			url: 'https://interview-q-staging.herokuapp.com',
+			url: process.env.CORE_ENDPOINT,
 		},
 		{
 			name: 'resumeQ',
-			url: 'https://qh-resumeq-practice-01.herokuapp.com',
+			url: process.env.RESUMEQ_ENDPOINT,
+		},
+		{
+			name: 'interviewQ',
+			url: process.env.INTERVIEWQ_ENDPOINT,
+		},
+		{
+			name: 'chat',
+			url: 'https://quality-hub-chat.herokuapp.com',
 		},
 	],
 	buildService({ name, url }) {
@@ -43,9 +48,10 @@ const gateway = new ApolloGateway({
 		},
 	});
 
-	const PORT = process.env.PORT || 4000;
+	const PORT = (process.env.GATEWAY_PORT || process.env.PORT) || 4000;
+
 
 	server.listen(PORT, () => {
-		console.log(`server is listening on ${PORT}`);
+		console.log(`QualityHub Federated Gateway is listening on ${PORT}`);
 	});
 })();

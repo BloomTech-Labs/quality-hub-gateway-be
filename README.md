@@ -7,9 +7,9 @@
 To get the server running locally:
 
 - Clone this repo
-- **yarn install** to install all required dependencies
-- **yarn server** to start the local server
-- **yarn test** to start server using testing environment
+- **npm install** to install all required dependencies
+- **npm run server** to start the local server
+- **npm test** to start server using testing environment
 
 ### Node.js + graphql-yoga + Prisma
 
@@ -105,3 +105,16 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 ## Documentation
 
 See [Frontend Documentation](🚫link to your frontend readme here) for details on the frontend of our project.
+
+# Local Development
+
+To run the Gateway with locally-deployed versions of the federation members, use the command `npm run development`. Inside of /config there is an env file which contains variables for locally-deployed federation members.
+
+### Environment Variables
+
+gateway.js expects the following environment variables:
+
+- `RESUMEQ_ENDPOINT` directs gateway to ResumeQ backend.
+- `INTERVIEWQ_ENDPOINT` directs gateway to InterviewQ backend.
+- `CORE_ENDPOINT` directs gateway to Core backend.
+- `GATEWAY_PORT` sets the port of the gateway.
